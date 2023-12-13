@@ -21,12 +21,16 @@ export class NinjasController {
   }
   //PUT NINJAS:ID
   @Put(':id')
-  updateNinja() {
-    return {};
+  updateNinja(@Param('id') id: string) {
+    return {
+      id,
+    };
   }
   //DELETE NINJAS
   @Delete(':id')
-  deleteNinja() {
-    return {};
+  deleteNinja(@Param('id') id: string) {
+    return {
+      id,
+    };
   }
 }
