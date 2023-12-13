@@ -1,11 +1,19 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
 
 @Controller('ninjas')
 export class NinjasController {
   //GET NINJAS
   @Get()
-  getNinjas() {
-    return [];
+  getNinjas(@Query('type') type: string) {
+    return [{ type }];
   }
   //GET NINJAS:ID
   @Get(':id')
