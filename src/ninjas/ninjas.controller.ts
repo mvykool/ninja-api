@@ -10,7 +10,7 @@ import {
 
 @Controller('ninjas')
 export class NinjasController {
-  //GET NINJAS
+  //GET NINJAS array
   @Get()
   getNinjas(@Query('type') type: string) {
     return [{ type }];
