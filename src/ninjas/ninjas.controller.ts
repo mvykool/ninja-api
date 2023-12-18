@@ -8,8 +8,6 @@ import {
   Query,
 } from '@nestjs/common';
 
-//this function is ass idk the hell wrote this
-
 @Controller('ninjas')
 export class NinjasController {
   //GET NINJAS
