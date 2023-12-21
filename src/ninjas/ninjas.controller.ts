@@ -14,11 +14,12 @@ import { NinjasService } from './ninjas.service';
 
 @Controller('ninjas')
 export class NinjasController {
+  constructor(private readonly ninjasService: NinjasService) {}
+
   //GET NINJAS
   @Get()
   getNinjas(@Query('weapon') weapon: 'stars' | 'katanas') {
-    const service = new NinjasService();
-    return service.getNinjas(weapon);
+    return this.ninjasService.getNinjas(weapon);
   }
   //GET NINJAS:ID
   @Get(':id')
