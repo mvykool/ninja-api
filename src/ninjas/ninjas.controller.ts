@@ -21,33 +21,24 @@ export class NinjasController {
   getNinjas(@Query('weapon') weapon: 'stars' | 'katanas') {
     return this.ninjasService.getNinjas(weapon);
   }
-  //GET NINJAS:ID
+  //GET single NINJA:ID
   @Get(':id')
   getOneNinja(@Param('id') id: string) {
-    return {
-      id,
-    };
+    return this.ninjasService.getNinja(+id);
   }
   //POST NINJAS
   @Post()
   createNinja(@Body() createNinjaDto: CreateNinjaDto) {
-    return {
-      name: createNinjaDto.name,
-    };
+    return this.ninjasService.createNinja(createNinjaDto);
   }
   //PUT NINJAS:ID
   @Put(':id')
   updateNinja(@Param('id') id: string, @Body() updateNinjaDto: UpdateNinjaDto) {
-    return {
-      id,
-      name: updateNinjaDto,
-    };
+    return this.ninjasService.updateNinja(+id, updateNinjaDto);
   }
   //DELETE NINJAS
   @Delete(':id')
   deleteNinja(@Param('id') id: string) {
-    return {
-      id,
-    };
+    return this.ninjasService.removeNinja(+id);
   }
 }
