@@ -10,13 +10,15 @@ import {
 } from '@nestjs/common';
 import { CreateNinjaDto } from './dto/create-ninja.dto';
 import { UpdateNinjaDto } from './dto/update-ninja.dto';
+import { NinjasService } from './ninjas.service';
 
 @Controller('ninjas')
 export class NinjasController {
   //GET NINJAS
   @Get()
-  getNinjas(@Query('type') type: string) {
-    return [{ type }];
+  getNinjas(@Query('weapon') weapon: 'stars' | 'katanas') {
+    const service = new NinjasService();
+    return service.getNinjas(weapon);
   }
   //GET NINJAS:ID
   @Get(':id')
