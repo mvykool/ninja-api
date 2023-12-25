@@ -39,12 +39,15 @@ export class NinjasController {
   }
   //PUT NINJAS:ID
   @Put(':id')
-  updateNinja(@Param('id') id: string, @Body() updateNinjaDto: UpdateNinjaDto) {
-    return this.ninjasService.updateNinja(+id, updateNinjaDto);
+  updateNinja(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateNinjaDto: UpdateNinjaDto,
+  ) {
+    return this.ninjasService.updateNinja(id, updateNinjaDto);
   }
   //DELETE NINJAS
   @Delete(':id')
-  deleteNinja(@Param('id') id: string) {
-    return this.ninjasService.removeNinja(+id);
+  deleteNinja(@Param('id', ParseIntPipe) id: number) {
+    return this.ninjasService.removeNinja(id);
   }
 }
